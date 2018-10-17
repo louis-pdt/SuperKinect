@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class GestureLeftHand : AbstractGesture
 {
+    [SerializeField] protected float amplitude;
+
     void Start()
     {
-        timestamp = 0.5f;
     }
     // Use this for initialization
     public override void SearchForGesture()
@@ -25,15 +26,15 @@ public class GestureLeftHand : AbstractGesture
                 {
                     memoryPosition = jointPosQuater[(int)JointType.HandLeft].position;
                     previousStateTime = Time.time;
+                    state++;
                 }
-                state++;
 
                 break;
             case 1:
-                //detect position to the right
+                //detect position to the left
                 if (Time.time - previousStateTime > timestamp)
                     state = 0;
-                else if (jointPosQuater[(int)JointType.HandLeft].position.x - memoryPosition.x > -0.2f)
+                else if (jointPosQuater[(int)JointType.HandLeft].position.x - memoryPosition.x < -amplitude)
                 {
                     state++;
                     memoryPosition = jointPosQuater[(int)JointType.HandLeft].position;
@@ -44,7 +45,7 @@ public class GestureLeftHand : AbstractGesture
                 //detect position to the left
                 if (Time.time - previousStateTime > timestamp)
                     state = 0;
-                else if (jointPosQuater[(int)JointType.HandLeft].position.x - memoryPosition.x > 0.2f)
+                else if (jointPosQuater[(int)JointType.HandLeft].position.x - memoryPosition.x > amplitude)
                 {
                     state++;
                     previousStateTime = Time.time;
@@ -52,6 +53,7 @@ public class GestureLeftHand : AbstractGesture
                 break;
             case 3:
                 Debug.Log("balayage gauche !");
+                activeFeedBack();
                 state = 0;
                 break;
         }

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GestureRightHand : AbstractGesture {
+
+    [SerializeField] protected float amplitude;
+
     void Start() {
-        timestamp = 0.3f;
     }
     // Use this for initialization
     public override void SearchForGesture()
@@ -18,15 +20,15 @@ public class GestureRightHand : AbstractGesture {
                 {
                     memoryPosition = jointPosQuater[(int)JointType.HandRight].position;
                     previousStateTime = Time.time;
+                    state++;
                 }
-                state++;
 
                 break;
             case 1:
                 //detect position to the right
                 if (Time.time - previousStateTime > timestamp)
                     state = 0;
-                else if (jointPosQuater[(int)JointType.HandRight].position.x - memoryPosition.x > 0.2f)
+                else if (jointPosQuater[(int)JointType.HandRight].position.x - memoryPosition.x > amplitude)
                 {
                     state++;
                     memoryPosition = jointPosQuater[(int)JointType.HandRight].position;
@@ -37,7 +39,7 @@ public class GestureRightHand : AbstractGesture {
                 //detect position to the left
                 if (Time.time - previousStateTime > timestamp)
                     state = 0;
-                else if (jointPosQuater[(int)JointType.HandRight].position.x - memoryPosition.x > -0.2f)
+                else if (jointPosQuater[(int)JointType.HandRight].position.x - memoryPosition.x < -amplitude)
                 {
                     state++;
                     previousStateTime = Time.time;
@@ -45,6 +47,7 @@ public class GestureRightHand : AbstractGesture {
                 break;
             case 3:
                 Debug.Log("balayage droite !");
+                activeFeedBack();
                 state = 0;
                 break;
         }

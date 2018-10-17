@@ -5,9 +5,12 @@ using UnityEngine;
 public class GestureHandsUpDown : AbstractGesture
 {
     private Vector3 memoryPosition2;
+    [SerializeField] protected float amplitudeHands;
+    [SerializeField] protected float amplitudeAboveHead;
+
+
     void Start()
     {
-        timestamp = 0.5f;
     }
     // Use this for initialization
     public override void SearchForGesture()
@@ -28,16 +31,17 @@ public class GestureHandsUpDown : AbstractGesture
                     memoryPosition = jointPosQuater[(int)JointType.HandLeft].position;
                     memoryPosition2 = jointPosQuater[(int)JointType.HandRight].position;
                     previousStateTime = Time.time;
+                    state++;
                 }
-                state++;
 
                 break;
             case 1:
-                //detect position to the right
                 if (Time.time - previousStateTime > timestamp)
                     state = 0;
-                else if (jointPosQuater[(int)JointType.HandLeft].position.y - memoryPosition.y > 0.3f
-                    && jointPosQuater[(int)JointType.HandRight].position.y - memoryPosition2.y > 0.3f)
+                else if (jointPosQuater[(int)JointType.HandLeft].position.y - memoryPosition.y > amplitudeHands
+                    && jointPosQuater[(int)JointType.HandRight].position.y - memoryPosition2.y > amplitudeHands
+                    && jointPosQuater[(int)JointType.HandRight].position.y - jointPosQuater[(int)JointType.Head].position.y > amplitudeAboveHead
+                    && jointPosQuater[(int)JointType.HandLeft].position.y - jointPosQuater[(int)JointType.Head].position.y > amplitudeAboveHead)
                 {
                     state++;
                     memoryPosition = jointPosQuater[(int)JointType.HandLeft].position;
@@ -50,14 +54,15 @@ public class GestureHandsUpDown : AbstractGesture
                 //detect position to the left
                 if (Time.time - previousStateTime > timestamp)
                     state = 0;
-                else if (jointPosQuater[(int)JointType.HandLeft].position.y - memoryPosition.y > -0.3f
-                    && jointPosQuater[(int)JointType.HandRight].position.y - memoryPosition2.y > -0.3f)
+                else if (jointPosQuater[(int)JointType.HandLeft].position.y - memoryPosition.y < -amplitudeHands
+                    && jointPosQuater[(int)JointType.HandRight].position.y - memoryPosition2.y < -amplitudeHands)
                 {
                     state++;
                     previousStateTime = Time.time;
                 }
                 break;
             case 3:
+                activeFeedBack();
                 Debug.Log("hands up and down !");
                 state = 0;
                 break;

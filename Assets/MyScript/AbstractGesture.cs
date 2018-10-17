@@ -8,19 +8,26 @@ public class AbstractGesture : MonoBehaviour {
     protected int state;
     protected JointPosQuater[] jointPosQuater;
     protected GestureManager gestureManager;
-    protected float timestamp;
+    [SerializeField] protected float timestamp;
     protected float previousStateTime;
     protected Vector3 memoryPosition;
-    //GestureDectected() { get; set }
+    [SerializeField] protected GameObject sphereFeedBack;
+    [SerializeField] protected Color colorFeedback;
+//GestureDectected() { get; set }
 
 void Awake () {
-        gestureManager = GestureManager.Instance;
+        //gestureManager = GestureManager.Instance;
         gestureManager = FindObjectOfType<GestureManager>();
         jointPosQuater = new JointPosQuater[25];
         for (int i = 0; i < 25; i++)
         {
             jointPosQuater[i] = new JointPosQuater();
         }
+    }
+
+    virtual protected void activeFeedBack()
+    {
+        sphereFeedBack.GetComponent<Renderer>().material.SetColor("_Color", colorFeedback);
     }
 
     virtual public void SearchForGesture()

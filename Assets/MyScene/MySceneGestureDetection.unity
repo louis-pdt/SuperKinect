@@ -225,6 +225,91 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed1c50b3cebc9374f9da79ca55dd4e4b, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &390670560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 390670564}
+  - component: {fileID: 390670563}
+  - component: {fileID: 390670562}
+  - component: {fileID: 390670561}
+  m_Layer: 0
+  m_Name: Sphere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!135 &390670561
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 390670560}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &390670562
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 390670560}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &390670563
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 390670560}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &390670564
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 390670560}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.44, y: 0.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1214242050}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &540287166
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,6 +476,7 @@ GameObject:
   - component: {fileID: 1214242052}
   - component: {fileID: 1214242051}
   - component: {fileID: 1214242053}
+  - component: {fileID: 1214242054}
   m_Layer: 0
   m_Name: GestureManager
   m_TagString: Untagged
@@ -419,7 +505,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 390670564}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -434,6 +521,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be7f68fcba053e4bbf71ebf6d86fcdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timestamp: 1
+  sphereFeedBack: {fileID: 390670560}
+  colorFeedback: {r: 0.066082224, g: 0.066082224, b: 0.9339623, a: 0}
+  amplitude: 0.2
 --- !u!114 &1214242052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,6 +536,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83a23ad4f04181439352e8a09a1f16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timestamp: 1
+  sphereFeedBack: {fileID: 390670560}
+  colorFeedback: {r: 1, g: 0, b: 0, a: 0}
+  amplitude: 0.2
 --- !u!114 &1214242053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,6 +551,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea7c9ceec993edb4dac91f65fd99afb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timestamp: 1
+  sphereFeedBack: {fileID: 390670560}
+  colorFeedback: {r: 0, g: 0, b: 0, a: 0}
+  amplitudeHands: 0.4
+  amplitudeAboveHead: 0.2
+--- !u!114 &1214242054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1214242048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7b43a2786578c4bb1f2d276dd1fcce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timestamp: 0.8
+  sphereFeedBack: {fileID: 390670560}
+  colorFeedback: {r: 0.15587512, g: 0.9245283, b: 0.082858644, a: 0}
+  amplitude: 0.35
+  maxInitDistance: 0.2
 --- !u!1 &1482082490
 GameObject:
   m_ObjectHideFlags: 0
