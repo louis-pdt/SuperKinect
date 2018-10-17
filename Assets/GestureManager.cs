@@ -40,13 +40,36 @@ public class JointPosQuater
 }
 public class GestureManager : MonoBehaviour {
 
-    [SerializeField] private AbstractGesture[] gesturesList;
+    private static GestureManager instance = null;
+
+    private GestureManager()
+    {
+    }
+
+    public static GestureManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new GestureManager();
+            }
+            return instance;
+        }
+    }
+
+    private AbstractGesture[] gesturesList;
 
     public int playerIndex = 0;
 
     private JointType jointType;
 
     private JointPosQuater[] jointPosQuater;
+
+    public JointPosQuater[] GetJointPosQuater()
+    {
+        return jointPosQuater;
+    }
     // Use this for initialization
     void Start () {
         KinectManager manager = KinectManager.Instance;
@@ -55,6 +78,7 @@ public class GestureManager : MonoBehaviour {
         {
             jointPosQuater[i] = new JointPosQuater();
         }
+        gesturesList = GetComponents<AbstractGesture>();
     }
 
 	
@@ -72,11 +96,12 @@ public class GestureManager : MonoBehaviour {
                 jointPosQuater[joint].rotation = manager.GetJointOrientation(userID, joint, true);
             }
         }
-        /*for(int i = 0; i < gesturesList.Length; i++)
-        {
-
-        }*/
-        Debug.Log(jointPosQuater[(int)JointType.HandRight].position);
-
+        if (manager.IsUserTracked(userID)) {
+            for (int i = 0; i < gesturesList.Length; i++)
+            {
+                gesturesList[i].SearchForGesture();
+            }
+        }
+        
     }
 }
