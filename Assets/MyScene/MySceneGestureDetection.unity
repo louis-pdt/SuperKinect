@@ -477,6 +477,8 @@ GameObject:
   - component: {fileID: 1214242051}
   - component: {fileID: 1214242053}
   - component: {fileID: 1214242054}
+  - component: {fileID: 1214242055}
+  - component: {fileID: 1214242056}
   m_Layer: 0
   m_Name: GestureManager
   m_TagString: Untagged
@@ -572,6 +574,38 @@ MonoBehaviour:
   colorFeedback: {r: 0.15587512, g: 0.9245283, b: 0.082858644, a: 0}
   amplitude: 0.35
   maxInitDistance: 0.2
+--- !u!114 &1214242055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1214242048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bef5084c76fd1354a853a2cc58caeb24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timestamp: 1
+  sphereFeedBack: {fileID: 390670560}
+  colorFeedback: {r: 0.7491455, g: 0, b: 1, a: 0}
+  amplitude: 0.2
+  maxXGapShoulder: 0.2
+--- !u!114 &1214242056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1214242048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aef80dcb2d80f2479d01355ea4c4452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timestamp: 0.6
+  sphereFeedBack: {fileID: 390670560}
+  colorFeedback: {r: 0.6981132, g: 0.6814925, b: 0.31283376, a: 0}
+  distanceInitShoulder: 0.2
+  distanceFinishShoulder: 0.4
 --- !u!1 &1482082490
 GameObject:
   m_ObjectHideFlags: 0
