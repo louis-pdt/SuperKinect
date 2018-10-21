@@ -131,7 +131,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Show_left_wave
+    m_ConditionEvent: Show_right_wave
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102140511057958050}
@@ -155,7 +155,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Show_right_wave
+    m_ConditionEvent: Show_left_wave
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102343401813849266}
@@ -306,10 +306,10 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102343401813849266}
-    m_Position: {x: 288, y: 144, z: 0}
+    m_Position: {x: 324, y: 96, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102140511057958050}
-    m_Position: {x: 372, y: 96, z: 0}
+    m_Position: {x: 180, y: 156, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102312500213688922}
     m_Position: {x: 360, y: 0, z: 0}
@@ -330,7 +330,20 @@ AnimatorStateMachine:
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 120, y: 48, z: 0}
-  m_EntryPosition: {x: 36, y: 144, z: 0}
-  m_ExitPosition: {x: 800, y: 120, z: 0}
+  m_EntryPosition: {x: -12, y: 252, z: 0}
+  m_ExitPosition: {x: 372, y: 252, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 1102343401813849266}
+  m_DefaultState: {fileID: 1102140511057958050}
+--- !u!1109 &1109567171156307946
+AnimatorTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_Conditions: []
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 1102140511057958050}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 1
