@@ -64,6 +64,7 @@ public class GestureHandsUpDown : AbstractGesture
             case 3:
                 activeFeedBack();
                 Debug.Log("hands up and down !");
+                buttonManager.TriggerHandsUp();
                 state = 0;
                 break;
         }

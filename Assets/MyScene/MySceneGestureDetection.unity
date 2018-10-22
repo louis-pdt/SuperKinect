@@ -2161,7 +2161,7 @@ MonoBehaviour:
   timestamp: 1
   sphereFeedBack: {fileID: 390670560}
   colorFeedback: {r: 0.066082224, g: 0.066082224, b: 0.9339623, a: 0}
-  toTriggerWhenDetect: {fileID: 0}
+  toTriggerWhenDetect: {fileID: 293013713}
   amplitude: 0.2
 --- !u!114 &1214242052
 MonoBehaviour:
@@ -2177,7 +2177,7 @@ MonoBehaviour:
   timestamp: 1
   sphereFeedBack: {fileID: 390670560}
   colorFeedback: {r: 1, g: 0, b: 0, a: 0}
-  toTriggerWhenDetect: {fileID: 0}
+  toTriggerWhenDetect: {fileID: 293013713}
   amplitude: 0.2
 --- !u!114 &1214242053
 MonoBehaviour:
@@ -2193,9 +2193,9 @@ MonoBehaviour:
   timestamp: 1
   sphereFeedBack: {fileID: 390670560}
   colorFeedback: {r: 0, g: 0, b: 0, a: 0}
-  toTriggerWhenDetect: {fileID: 0}
-  amplitudeHands: 0.4
-  amplitudeAboveHead: 0.2
+  toTriggerWhenDetect: {fileID: 293013713}
+  amplitudeHands: 0.3
+  amplitudeAboveHead: 0.1
 --- !u!114 &1214242054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2210,9 +2210,9 @@ MonoBehaviour:
   timestamp: 0.8
   sphereFeedBack: {fileID: 390670560}
   colorFeedback: {r: 0.15587512, g: 0.9245283, b: 0.082858644, a: 0}
-  toTriggerWhenDetect: {fileID: 0}
-  amplitude: 0.35
-  maxInitDistance: 0.2
+  toTriggerWhenDetect: {fileID: 293013713}
+  amplitude: 0.3
+  maxInitDistance: 0.3
 --- !u!114 &1214242055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2227,9 +2227,9 @@ MonoBehaviour:
   timestamp: 1
   sphereFeedBack: {fileID: 390670560}
   colorFeedback: {r: 0.7491455, g: 0, b: 1, a: 0}
-  toTriggerWhenDetect: {fileID: 0}
+  toTriggerWhenDetect: {fileID: 293013713}
   amplitude: 0.2
-  maxXGapShoulder: 0.2
+  maxXGapShoulder: 0.3
 --- !u!114 &1214242056
 MonoBehaviour:
   m_ObjectHideFlags: 0
