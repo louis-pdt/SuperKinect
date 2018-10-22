@@ -34,7 +34,8 @@ public class GestureLeftHand : AbstractGesture
                 //detect position to the left
                 if (Time.time - previousStateTime > timestamp)
                     state = 0;
-                else if (jointPosQuater[(int)JointType.HandLeft].position.x - memoryPosition.x < -amplitude)
+                else if (jointPosQuater[(int)JointType.HandLeft].position.x - memoryPosition.x < -amplitude
+                    && jointPosQuater[(int)JointType.HandLeft].position.y - jointPosQuater[(int)JointType.ElbowLeft].position.y > 0)
                 {
                     state++;
                     memoryPosition = jointPosQuater[(int)JointType.HandLeft].position;

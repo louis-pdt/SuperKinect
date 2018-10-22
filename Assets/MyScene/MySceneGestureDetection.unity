@@ -2687,8 +2687,9 @@ MonoBehaviour:
   sphereFeedBack: {fileID: 390670560}
   colorFeedback: {r: 0.15587512, g: 0.9245283, b: 0.082858644, a: 0}
   toTriggerWhenDetect: {fileID: 293013713}
-  amplitude: 0.3
+  amplitude: 0.4
   maxInitDistance: 0.3
+  maxAngleArm: 10
 --- !u!114 &1214242055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2700,7 +2701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bef5084c76fd1354a853a2cc58caeb24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timestamp: 1
+  timestamp: 0.8
   sphereFeedBack: {fileID: 390670560}
   colorFeedback: {r: 0.7491455, g: 0, b: 1, a: 0}
   toTriggerWhenDetect: {fileID: 293013713}
@@ -4388,7 +4389,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 29.8
+  m_fontSize: 29.6
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
