@@ -32,8 +32,18 @@ public class GestureClap : AbstractGesture
         //Vector3 rightElbow = jointPosQuater[(int)JointType.ElbowRight].position;
 
         if (isClapping)
+        {
             activeFeedBack();
-        
+            buttonManager.TriggerClap();
+            buttonManager.ToggleDetection();
+        }
+            
+
+        Debug.Log(leftHand);
+        Debug.Log(leftShoulder);
+        Debug.Log("1" + (rightHand.x - leftHand.x > amplitude) + " 2 " + (leftHand.x - leftShoulder.x < 0)
+                    + " 3 " + (rightShoulder.x - rightHand.x < 0) +
+                    (leftShoulder.y - leftHand.y > maxYHeight) + (rightShoulder.y - rightHand.y > maxYHeight));
         switch (state)
         {
             case 0:
