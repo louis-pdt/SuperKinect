@@ -12,6 +12,7 @@ public class ButtonManager : MonoBehaviour {
     [SerializeField] GameObject sphereOnAir;
     [SerializeField] TMPro.TextMeshProUGUI textStartButton;
     [SerializeField] GameObject[] activateWhenListening;
+    [SerializeField] GameObject[] desactivateWhenListening;
     [SerializeField] TMPro.TextMeshProUGUI lastGestureName;
 
 
@@ -69,6 +70,10 @@ public class ButtonManager : MonoBehaviour {
             {
                 element.SetActive(detectionActive);
             }
+            foreach (var element in desactivateWhenListening)
+            {
+                element.SetActive(!detectionActive);
+            }
         } else
         {
             detectionActive = true;
@@ -77,6 +82,10 @@ public class ButtonManager : MonoBehaviour {
             foreach (var element in activateWhenListening)
             {
                 element.SetActive(detectionActive);
+            }
+            foreach (var element in desactivateWhenListening)
+            {
+                element.SetActive(!detectionActive);
             }
         }
     }
