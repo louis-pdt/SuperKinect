@@ -34,19 +34,21 @@ public class GestureClap : AbstractGesture
 
         if (isClapping)
             activeFeedBack();
+        
 
         switch (state)
         {
             case 0:
                 //detect starting movement : hands in the same x plan as shoulders, left hand up and right down or inverse
-                if (Mathf.Abs((leftShoulder.y - leftHand.y)) < maxYHeight
-                    && Mathf.Abs((rightShoulder.x - rightHand.x)) < maxYHeight
+                if (leftShoulder.y - leftHand.y > maxYHeight
+                    && rightShoulder.y - rightHand.y > maxYHeight
                     && Vector3.Distance(leftHand, rightHand) < minDistClap)
                 {
                     state = 1;
                 }
                 break;
             case 1:
+                Debug.Log(state);
                 //both hands outside of the shoulder, with a min amplitude between them (next position)
                 if (Time.time - previousStateTime > timestamp)
                 {
@@ -56,9 +58,9 @@ public class GestureClap : AbstractGesture
                     isClapping = false;
                 }
 
-                else if (leftHand.x - rightHand.x > amplitude
-                    && (leftShoulder.y - leftHand.y) < maxYHeight
-                    && (rightShoulder.y - rightHand.y) < maxYHeight
+                else if (rightHand.x - leftHand.x > amplitude
+                    && leftShoulder.y - leftHand.y > maxYHeight
+                    && rightShoulder.y - rightHand.y > maxYHeight
                     && leftHand.x - leftShoulder.x < 0
                     && rightShoulder.x - rightHand.x < 0)
                 {
@@ -69,6 +71,7 @@ public class GestureClap : AbstractGesture
                 break;
 
             case 2:
+                Debug.Log(state);
                 if (Time.time - previousStateTime > timestamp)
                 {
                     state = 0;
