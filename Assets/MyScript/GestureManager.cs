@@ -41,6 +41,7 @@ public class JointPosQuater
 public class GestureManager : MonoBehaviour {
 
     private static GestureManager instance = null;
+    [SerializeField] GameObject TextNoPlayer;
 
     private GestureManager()
     {
@@ -97,10 +98,14 @@ public class GestureManager : MonoBehaviour {
             }
         }
         if (manager.IsUserTracked(userID)) {
+            TextNoPlayer.SetActive(false);
             for (int i = 0; i < gesturesList.Length; i++)
             {
                 gesturesList[i].SearchForGesture();
             }
+        } else
+        {
+            TextNoPlayer.SetActive(true);
         }
 
     }
