@@ -10,7 +10,6 @@ public class GestureClap : AbstractGesture
 
     private bool isClapping;
 
-
     void Start()
     {
     }
@@ -34,8 +33,12 @@ public class GestureClap : AbstractGesture
 
         if (isClapping)
             activeFeedBack();
-        
 
+        Debug.Log(leftHand);
+        Debug.Log(leftShoulder);
+        Debug.Log("1" + (rightHand.x - leftHand.x > amplitude) + " 2 " + (leftHand.x - leftShoulder.x < 0)
+                    + " 3 " + (rightShoulder.x - rightHand.x < 0) +
+                    (leftShoulder.y - leftHand.y > maxYHeight) + (rightShoulder.y - rightHand.y > maxYHeight));
         switch (state)
         {
             case 0:
@@ -45,10 +48,13 @@ public class GestureClap : AbstractGesture
                     && Vector3.Distance(leftHand, rightHand) < minDistClap)
                 {
                     state = 1;
+                    previousStateTime = Time.time;
                 }
                 break;
             case 1:
                 Debug.Log(state);
+                
+                
                 //both hands outside of the shoulder, with a min amplitude between them (next position)
                 if (Time.time - previousStateTime > timestamp)
                 {
@@ -57,7 +63,7 @@ public class GestureClap : AbstractGesture
                         sphereFeedBack.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
                     isClapping = false;
                 }
-
+                
                 else if (rightHand.x - leftHand.x > amplitude
                     && leftShoulder.y - leftHand.y > maxYHeight
                     && rightShoulder.y - rightHand.y > maxYHeight
@@ -65,8 +71,10 @@ public class GestureClap : AbstractGesture
                     && rightShoulder.x - rightHand.x < 0)
                 {
                     previousStateTime = Time.time;
+                    if (state == 1)
+                        isClapping = true;
                     state = 2;
-                    isClapping = true;
+                    ;
                 }
                 break;
 
