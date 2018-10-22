@@ -13,9 +13,16 @@ public class AbstractGesture : MonoBehaviour {
     protected Vector3 memoryPosition;
     [SerializeField] protected GameObject sphereFeedBack;
     [SerializeField] protected Color colorFeedback;
+    [SerializeField] private GameObject toTriggerWhenDetect;
+    private ButtonManager buttonManager;
 //GestureDectected() { get; set }
 
 void Awake () {
+        if (toTriggerWhenDetect)
+        {
+            buttonManager = toTriggerWhenDetect.GetComponent<ButtonManager>();
+        }
+
         //gestureManager = GestureManager.Instance;
         gestureManager = FindObjectOfType<GestureManager>();
         jointPosQuater = new JointPosQuater[25];

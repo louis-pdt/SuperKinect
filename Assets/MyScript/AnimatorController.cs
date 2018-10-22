@@ -25,5 +25,7 @@ public class AnimatorController : MonoBehaviour {
             dummyAnimator.SetTrigger("Show_running");
         if (Input.GetKeyDown("t"))
             dummyAnimator.SetTrigger("Show_hands_up");
+        if (Input.GetKeyDown("y"))
+            dummyAnimator.SetTrigger("Show_clapping");
     }
 }
