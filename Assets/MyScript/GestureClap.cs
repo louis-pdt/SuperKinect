@@ -36,6 +36,7 @@ public class GestureClap : AbstractGesture
         {
             activeFeedBack();
             buttonManager.TriggerClap();
+            isClapping = false;
             buttonManager.ToggleDetection();
         }
             
