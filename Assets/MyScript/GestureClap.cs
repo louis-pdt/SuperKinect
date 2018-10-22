@@ -9,7 +9,6 @@ public class GestureClap : AbstractGesture
     [SerializeField] protected float minDistClap = 0.1f;
 
     private bool isClapping;
-    private int previousState;
 
     void Start()
     {
@@ -84,7 +83,6 @@ public class GestureClap : AbstractGesture
                     && Vector3.Distance(leftHand, rightHand) < minDistClap)
                 {
                     state = 1;
-                    previousState = 2;
                     timestamp = Time.time;
                     isClapping = true;
                 }
