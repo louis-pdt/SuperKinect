@@ -75,6 +75,10 @@ public class GestureRun : AbstractGesture
                 {
                     previousStateTime = Time.time;
                     state = 2;
+                    if (!isRunning)
+                    {
+                        buttonManager.TriggerRunning();
+                    }
                     isRunning = true;
                 }
                 break;
@@ -96,6 +100,10 @@ public class GestureRun : AbstractGesture
                 {
                     previousStateTime = Time.time;
                     state = 1;
+                    if (!isRunning)
+                    {
+                        buttonManager.TriggerRunning();
+                    }
                     isRunning = true;
                 }
                 break;

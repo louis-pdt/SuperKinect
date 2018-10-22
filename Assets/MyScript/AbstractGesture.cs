@@ -14,7 +14,7 @@ public class AbstractGesture : MonoBehaviour {
     [SerializeField] protected GameObject sphereFeedBack;
     [SerializeField] protected Color colorFeedback;
     [SerializeField] private GameObject toTriggerWhenDetect;
-    private ButtonManager buttonManager;
+    protected ButtonManager buttonManager;
 //GestureDectected() { get; set }
 
 void Awake () {

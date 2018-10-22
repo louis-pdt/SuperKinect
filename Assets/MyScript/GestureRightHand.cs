@@ -48,6 +48,7 @@ public class GestureRightHand : AbstractGesture {
             case 3:
                 Debug.Log("balayage droite !");
                 activeFeedBack();
+                buttonManager.TriggerWavingRight();
                 state = 0;
                 break;
         }

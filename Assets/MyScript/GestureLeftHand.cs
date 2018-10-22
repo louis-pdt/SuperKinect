@@ -54,6 +54,7 @@ public class GestureLeftHand : AbstractGesture
             case 3:
                 Debug.Log("balayage gauche !");
                 activeFeedBack();
+                buttonManager.TriggerWavingLeft();
                 state = 0;
                 break;
         }

@@ -52,6 +52,12 @@ public class ButtonManager : MonoBehaviour {
         lastGestureName.text = ("Hands up");
     }
 
+    public void TriggerClap()
+    {
+        animator.SetTrigger("Show_clapping");
+        lastGestureName.text = ("Clap !");
+    }
+
     public void ToggleDetection()
     {
         if (detectionActive)

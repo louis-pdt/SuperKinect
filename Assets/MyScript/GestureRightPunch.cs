@@ -42,8 +42,9 @@ public class GestureRightPunch : AbstractGesture {
                 }
                 break;
             case 2:
-                Debug.Log("balayage droite !");
+                Debug.Log("Poing droite !");
                 activeFeedBack();
+                buttonManager.TriggerRightPunch();
                 state = 0;
                 break;
 
