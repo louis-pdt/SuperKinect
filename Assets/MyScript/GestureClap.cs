@@ -58,8 +58,6 @@ public class GestureClap : AbstractGesture
                 }
                 break;
             case 1:
-                Debug.Log(state);
-                
                 
                 //both hands outside of the shoulder, with a min amplitude between them (next position)
                 if (Time.time - previousStateTime > timestamp)
@@ -84,7 +82,6 @@ public class GestureClap : AbstractGesture
                 break;
 
             case 2:
-                Debug.Log(state);
                 if (Time.time - previousStateTime > timestamp)
                 {
                     state = 0;
