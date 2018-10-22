@@ -2720,7 +2720,7 @@ MonoBehaviour:
   timestamp: 1
   sphereFeedBack: {fileID: 390670560}
   colorFeedback: {r: 0.69803923, g: 0.68235296, b: 0.3137255, a: 0}
-  toTriggerWhenDetect: {fileID: 0}
+  toTriggerWhenDetect: {fileID: 293013713}
   amplitude: 0.3
   maxYHeight: 0
   minDistClap: 0.1
