@@ -9,6 +9,7 @@ public class GestureClap : AbstractGesture
     [SerializeField] protected float minDistClap = 0.1f;
 
     private bool isClapping;
+    private int previousState;
 
     void Start()
     {
@@ -64,8 +65,7 @@ public class GestureClap : AbstractGesture
                     && rightShoulder.x - rightHand.x < 0)
                 {
                     previousStateTime = Time.time;
-                    if (state == 1)
-                        isClapping = true;
+                    
                     state = 2;
                     ;
                 }
@@ -79,11 +79,14 @@ public class GestureClap : AbstractGesture
                         sphereFeedBack.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
                     isClapping = false;
                 }
-                else if (Mathf.Abs((leftShoulder.y - leftHand.y)) < maxYHeight
-                    && Mathf.Abs((rightShoulder.x - rightHand.x)) < maxYHeight
+                else if (leftShoulder.y - leftHand.y > maxYHeight
+                    && rightShoulder.y - rightHand.y > maxYHeight
                     && Vector3.Distance(leftHand, rightHand) < minDistClap)
                 {
                     state = 1;
+                    previousState = 2;
+                    timestamp = Time.time;
+                    isClapping = true;
                 }
                 break;
         }
